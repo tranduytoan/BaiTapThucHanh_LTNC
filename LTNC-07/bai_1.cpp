@@ -1,3 +1,5 @@
+// Tự lập trình hàm tìm kiếm nhị phân (binary search) bằng đệ qui. Viết cả phần hàm main() để kiểm tra. 
+
 #include <bits/stdc++.h>
 using namespace std;
 
