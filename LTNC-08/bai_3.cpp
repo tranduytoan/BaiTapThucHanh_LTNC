@@ -16,9 +16,11 @@ class SinglyLinkedListNode {
 class SinglyLinkedList {
     public:
         SinglyLinkedListNode *head;
+        SinglyLinkedListNode *tail;
 
         SinglyLinkedList() {
             this->head = nullptr;
+            this->tail = nullptr;
         }
 
 };
@@ -44,7 +46,7 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
     }
 }
 
-// Complete the insertNodeAtTail function below.
+// Complete the insertNodeAtHead function below.
 
 /*
  * For your reference:
@@ -55,24 +57,18 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  * };
  *
  */
-SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
-    if (head == nullptr) {
-        head = new SinglyLinkedListNode(data);
-        return head;
+SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data) {
+    if (llist == nullptr) {
+        llist = new SinglyLinkedListNode(data);
+        return llist;
+    } else {
+        SinglyLinkedListNode* newNode = new SinglyLinkedListNode(data);
+        newNode -> next = llist;
+        llist = newNode;
     }
-    // vòng lặp
-    else {
-        SinglyLinkedListNode* temp = head;
-        while (temp->next != nullptr) {
-            temp = temp->next;
-        }
-        temp->next = new SinglyLinkedListNode(data);
-    }
-    // đệ quy
-    //head->next = insertNodeAtTail(head->next, data);
-    return head;
-}
+    return llist;
 
+}
 
 int main()
 {
@@ -89,7 +85,7 @@ int main()
         cin >> llist_item;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     
-      	SinglyLinkedListNode* llist_head = insertNodeAtTail(llist->head, llist_item);
+      	SinglyLinkedListNode* llist_head = insertNodeAtHead(llist->head, llist_item);
         llist->head = llist_head;
     }
 
