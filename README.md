@@ -1,4 +1,5 @@
 # ĐỀ BÀI
+0. [ALL](https://sites.google.com/view/ltnc2023/l%E1%BB%8Bch-h%E1%BB%8Dc-t%C3%A0i-li%E1%BB%87u?pli=1)
 1. [Bài tập ngày 04/07](#bai04-07)
 2. [LTNC-01](#ltnc-01)
 3. [LTNC-02](#ltnc-02)
