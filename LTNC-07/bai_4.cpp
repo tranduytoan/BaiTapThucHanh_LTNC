@@ -59,24 +59,23 @@ bool solvePuzzle(vector<string>& puzzle, vector<string>& words, int index) {
     int puzzleSize = puzzle.size();
 
     for (int i = 0; i < puzzleSize; i++) {
-        for (int j = 0; j < puzzleSize - wordLen + 1; j++) {
-            if (checkHorizontal(puzzle, i, j, word)) {
-                placeWordHorizontal(puzzle, i, j, word);
-                if (solvePuzzle(puzzle, words, index + 1))
-                    return true;
-                removeWordHorizontal(puzzle, i, j, word);
-            }
-        }
-    }
-
-
-    for (int i = 0; i < puzzleSize - wordLen + 1; i++) {
         for (int j = 0; j < puzzleSize; j++) {
-            if (checkVertical(puzzle, j, i, word)) {
-                placeWordVertical(puzzle, j, i, word);
-                if (solvePuzzle(puzzle, words, index + 1))
-                    return true;
-                removeWordVertical(puzzle, j, i, word);
+            if (j < puzzleSize - wordLen + 1) {
+                if (checkHorizontal(puzzle, i, j, word)) {
+                    placeWordHorizontal(puzzle, i, j, word);
+                    if (solvePuzzle(puzzle, words, index + 1))
+                        return true;
+                    removeWordHorizontal(puzzle, i, j, word);
+                }
+            }
+
+            if (i < puzzleSize - wordLen + 1) {
+                if (checkVertical(puzzle, j, i, word)) {
+                    placeWordVertical(puzzle, j, i, word);
+                    if (solvePuzzle(puzzle, words, index + 1))
+                        return true;
+                    removeWordVertical(puzzle, j, i, word);
+                }
             }
         }
     }
